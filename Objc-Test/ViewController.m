@@ -14,16 +14,32 @@
 
 @implementation ViewController
 
+short player = 1;
+NSMutableArray *state;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self startGame];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)fieldTapped:(UIButton *)sender {
+    if ([sender titleForState:UIControlStateNormal] != nil) {
+        return;
+    }
+    NSInteger tag = [sender tag];
+    state[tag] = [NSNumber numberWithInteger:player];
+    if (player == 1) {
+        [sender setTitle:@"X" forState:UIControlStateNormal];
+        player = 2;
+    } else {
+        [sender setTitle:@"O" forState:UIControlStateNormal];
+        player = 1;
+    }
+    NSLog(@"%@", state);
 }
 
+-(void)startGame {
+    state = [[NSMutableArray alloc] initWithObjects:@0,@0,@0,@0,@0,@0,@0,@0,@0, nil];
+}
 
 @end
