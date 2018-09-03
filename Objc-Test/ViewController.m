@@ -15,7 +15,7 @@
 @implementation ViewController
 
 short player = 1;
-NSMutableArray *state;
+short *state[9];
 
 // MARK: - Lifecycle
 
@@ -31,7 +31,7 @@ NSMutableArray *state;
         return;
     }
     NSInteger tag = [sender tag];
-    state[tag] = [NSNumber numberWithInteger:player];
+    state[tag] = &player;
     if (player == 1) {
         [sender setTitle:@"X" forState:UIControlStateNormal];
         player = 2;
@@ -43,8 +43,9 @@ NSMutableArray *state;
 }
 
 - (IBAction)playAgainButtonTapped:(UIButton *)sender {
-    for (UIButton *button in _fieldButtons) {
-        [button setTitle:nil forState:UIControlStateNormal];
+    for (int i = 0; i < 9; i++) {
+        [_fieldButtons[i] setTitle:NULL forState:UIControlStateNormal];
+        state[i] = NULL;
     }
     [self startGame];
 }
@@ -52,7 +53,6 @@ NSMutableArray *state;
 // MARK: - Functions
 
 -(void)startGame {
-    state = [[NSMutableArray alloc] initWithObjects:@0,@0,@0,@0,@0,@0,@0,@0,@0, nil];
     [[self playAgainButton] setHidden:true];
 }
 
@@ -64,9 +64,8 @@ NSMutableArray *state;
 }
 
 -(BOOL)checkIfFinished {
-    NSLog(@"%@\n", state);
-    for (NSNumber *item in state) {
-        if ([item isEqualToNumber:[NSNumber numberWithInteger:0]]) {
+    for (int i = 0; i < 9; i++) {
+        if (state[i] == NULL) {
             return false;
         }
     }
