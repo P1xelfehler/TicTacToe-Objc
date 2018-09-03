@@ -127,11 +127,20 @@
                                     <constraint firstAttribute="width" secondItem="DSX-e2-5am" secondAttribute="height" multiplier="1:1" id="syg-rG-UFc"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbN-7V-T0x">
+                                <rect key="frame" x="152" y="554.5" width="70" height="30"/>
+                                <state key="normal" title="Play again"/>
+                                <connections>
+                                    <action selector="playAgainButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yiF-vo-Ceb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lT3-J5-mOX" firstAttribute="centerX" secondItem="DSX-e2-5am" secondAttribute="centerX" id="7VY-tk-cKU"/>
+                            <constraint firstItem="TbN-7V-T0x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="D6P-Fr-w21"/>
                             <constraint firstItem="DSX-e2-5am" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Fm3-W8-aiB"/>
+                            <constraint firstItem="TbN-7V-T0x" firstAttribute="top" secondItem="lT3-J5-mOX" secondAttribute="bottom" constant="50" id="GJa-vS-87E"/>
                             <constraint firstItem="lT3-J5-mOX" firstAttribute="height" secondItem="DSX-e2-5am" secondAttribute="height" id="PIv-Dy-dIY"/>
                             <constraint firstItem="DSX-e2-5am" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Rqa-B0-iQh"/>
                             <constraint firstItem="lT3-J5-mOX" firstAttribute="width" secondItem="DSX-e2-5am" secondAttribute="width" id="iqV-MC-jXJ"/>
@@ -141,6 +150,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="playAgainButton" destination="TbN-7V-T0x" id="g1z-g7-pTb"/>
+                        <outletCollection property="fieldButtons" destination="h1u-7w-6P4" id="maR-kn-jsv"/>
+                        <outletCollection property="fieldButtons" destination="b3L-p2-B6A" id="z57-IH-PNU"/>
+                        <outletCollection property="fieldButtons" destination="eN6-am-0wl" id="hz8-vi-mIW"/>
+                        <outletCollection property="fieldButtons" destination="CVD-pn-4my" id="tVZ-wc-Pz8"/>
+                        <outletCollection property="fieldButtons" destination="F8d-Kq-Hbt" id="Xv5-O3-mIh"/>
+                        <outletCollection property="fieldButtons" destination="lfG-vr-urM" id="mUg-tz-7VD"/>
+                        <outletCollection property="fieldButtons" destination="IHV-pV-Xbx" id="ini-wE-LoR"/>
+                        <outletCollection property="fieldButtons" destination="K62-cB-jeB" id="Hnh-2v-tot"/>
+                        <outletCollection property="fieldButtons" destination="7Hb-xY-2mh" id="yWq-im-ZBB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
