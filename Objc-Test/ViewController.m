@@ -16,6 +16,7 @@
 
 short player = 1;
 short state[9];
+bool playing = true;
 
 // MARK: - Lifecycle
 
@@ -27,6 +28,9 @@ short state[9];
 // MARK: - Actions
 
 - (IBAction)fieldTapped:(UIButton *)sender {
+    if (!playing) {
+        return;
+    }
     if ([sender titleForState:UIControlStateNormal] != nil) {
         return;
     }
@@ -53,6 +57,7 @@ short state[9];
 
 -(void)startGame {
     [[self playAgainButton] setHidden:true];
+    playing = true;
 }
 
 -(void)evaluate {
@@ -60,6 +65,7 @@ short state[9];
     if (winner != 0) { // someone has won
         [[self playAgainButton] setHidden:false];
         [self showWinnerAlert:winner];
+        playing = false;
         return;
     }
     if ([self isFieldFull]) { // field is full
