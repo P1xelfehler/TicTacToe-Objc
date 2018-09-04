@@ -10,8 +10,5 @@
 
 @interface ViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIButton *playAgainButton;
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *fieldButtons;
-
 @end
 

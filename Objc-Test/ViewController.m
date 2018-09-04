@@ -10,6 +10,9 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *playAgainButton;
+@property (nonatomic) IBOutletCollection(UIButton) NSArray *fieldButtons;
+
 @end
 
 @implementation ViewController
